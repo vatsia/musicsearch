@@ -4,10 +4,19 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    #url(r'^', views.index, name='index'),
+    url(r'^', views.index, name='index'),
     #url(r'^(?P<track_id>[0-9]+)/$', views.track, name='track'),
     #url(r'^(?P<artist_id>[0-9]+)/$', views.artist, name='artist'),
-    url(r'^results/(?P<result_id>[0-9]+)/$', views.results, name='results'),
-    url(r'^search/$', views.search_handler, name='search_handler'),
-    url(r'^$', views.index, name='root'),
+    url(r'^(?P<search_id>[0-9]+)/$', views.search, name='search'),
+    url(r'^spotify/(?P<keyword>[0-9a-zA-Z]+)/$', views.search_spotify, name='search_spotify'),
 ]
+
+
+
+
+
+
+
+
+
+

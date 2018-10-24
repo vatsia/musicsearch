@@ -1,0 +1,10 @@
+<h1>Searches</h1>
+{% if search_list %}
+    <ul>
+    {% for search in search_list %}
+        <li><a href="/search/{{ search.id }}/">{{ search.keyword }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Faggot.</p>
+{% endif %}
