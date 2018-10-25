@@ -18,12 +18,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from musicsearch import views as ms_views
 
 urlpatterns = [
-    url(r'^$', 'musicsearch.views.index', name='index'),
+    url(r'^$', ms_views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^login/$', ms_views.login_user, name='login'),
+    url(r'^signup/$', ms_views.create_user, name='signup'),
     #url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^logout/$', ms_views.logout_user, name='logout'),
     url(r'^musicsearch/', include('musicsearch.urls'))
 ]

@@ -128,3 +128,6 @@ STATIC_URL = '/static/'
 
 # Login specific stuff
 LOGIN_REDIRECT_URL = '/'
+
+# Change flash-message storage type to sessions:
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

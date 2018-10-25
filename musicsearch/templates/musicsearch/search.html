@@ -1,45 +1,31 @@
- <!DOCTYPE html>
- <html lang="en">
+{% extends 'base.html' %}
 
-<head>
-     <meta charset="UTF-8">
-     <title>Search</title>
-     {% load static %}
-     <meta name="description" content="Search - Bootstrap 4">
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{% static "musicsearch/search.css" %}" type="text/css" rel="stylesheet">
-      
-     <style>
-     /*20px padding-Just to be well visible here*/
-         #searchForm {
-          padding: 20px;
-          
-        }
-     </style>
- </head>
+{% block title %}Search{% endblock %}
 
- <body>
-        
-         <div id="searchForm">
-            <div class="container">
-              <div class="row">
-                <form class="form-row" method="post" action="/musicsearch/search/">
-                    {% csrf_token %}
-                <div class="col">
-                  <input class="form-control" type="search" placeholder="Search" name="keyword">
-                </div>
-                <div class="col">
-                  <button class="btn btn-outline-success bg-success" type="submit"><i class="fa fa-search"></i></button>
-                </div>
-              </form>
-
-            </div>
-          </div>
-          </div>
-  
- </body>
-
- </html>
+{% block content %} 
+<div class="container">
+    <br/>
+	<div class="row justify-content-center pad">
+                        <div class="col-12 col-md-10 col-lg-8 pad">
+                            <form class="card card-sm" method="post" action="/musicsearch/search/">
+                                {% csrf_token %}
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search tracks" name="keyword">
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+                                    </div>
+                                   
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+</div>
+{% endblock %}

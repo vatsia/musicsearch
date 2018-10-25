@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Search history{% endblock %}
+
+{% block content %} 
+<div class="container">
+    <h1 class="text-light">Your searches:</h1>
+    {% if searches %}
+    <h3 class="text-light">You have made {{ count }} searches</h3>
+    <ul class="list-group list-group-flush">
+        {% for s in searches %}
+        <li class="list-group-item "><a class="text-dark" href="/musicsearch/results/{{ s.id }}">{{ s.keyword }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="text-light">No earlier searches</h3>
+</div>
+
+{% endif %}
+{% endblock %}
